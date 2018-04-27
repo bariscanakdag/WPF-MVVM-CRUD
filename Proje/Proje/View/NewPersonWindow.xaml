@@ -1,0 +1,49 @@
+﻿<Window x:Class="Proje.View.NewPersonWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        
+        xmlns:local="clr-namespace:Proje.Model"
+        mc:Ignorable="d"
+        Title="NewPersonWindow" Height="450" Width="800">
+    <Grid RenderTransformOrigin="0.402,0.382">
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="94,109,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="{Binding Adi}" Width="120"/>
+        <Label Content="    Adı" HorizontalAlignment="Left" Margin="41,109,0,0" VerticalAlignment="Top" Width="48"  Height="23"/>
+        <TextBox Text="{Binding Soyadi}" HorizontalAlignment="Left" Height="23" Margin="94,137,0,0" TextWrapping="Wrap" VerticalAlignment="Top"  Width="120"/>
+        <TextBox Text="{Binding Yasi}" HorizontalAlignment="Left" Height="23" Margin="94,165,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox Text="{Binding Cinsiyet}" HorizontalAlignment="Left" Height="23" Margin="94,200,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label Content="    Soyadı" HorizontalAlignment="Left" Margin="18,137,0,0" VerticalAlignment="Top" Width="71" Height="28"/>
+        <Label Content="Yas" HorizontalAlignment="Left" Margin="41,165,0,0" VerticalAlignment="Top" Width="48" Height="23"/>
+        <Label Content="    Cinsiyet" HorizontalAlignment="Left" Margin="10,200,0,0" VerticalAlignment="Top" Width="79" Height="30"/>
+        <Label Content="PozisyonID" HorizontalAlignment="Left" Margin="10,228,0,0" VerticalAlignment="Top" Width="78" Height="30" RenderTransformOrigin="0.5,0.5">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="-2.684"/>
+                    <RotateTransform/>
+                    <TranslateTransform X="0.703"/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <ListBox HorizontalAlignment="Left" Height="168" Margin="339,103,0,0" VerticalAlignment="Top" Width="138">
+            <ListBoxItem Content="1-Uzman"/>
+            <ListBoxItem Content="2-Destek"/>
+            <ListBoxItem Content="3-Mühendis"/>
+            <ListBoxItem Content="4-Yönetici"/>
+            <ListBoxItem Content="5-Asistan"/>
+            <ListBoxItem Content="Pozisyon ID nitelikler"/>
+        </ListBox>
+        <ComboBox x:Name="cmbPozisyon" HorizontalAlignment="Left" Margin="94,233,0,0" VerticalAlignment="Top" Width="120"  SelectedValuePath="Content" SelectedValue="{Binding SelectPozisyon}">
+            <ComboBoxItem Content="1" HorizontalAlignment="Left" Width="118"/>
+            <ComboBoxItem Content="2" HorizontalAlignment="Left" Width="118"/>
+            <ComboBoxItem Content="3" HorizontalAlignment="Left" Width="118"/>
+            <ComboBoxItem Content="4" HorizontalAlignment="Left" Width="118"/>
+            <ComboBoxItem Content="5" HorizontalAlignment="Left" Width="118"/>
+        </ComboBox>
+
+        <!--<TextBlock Text="{Binding SelectedValue,ElementName=cmbPozisyon}"/>-->
+
+        <Button  Content="Kaydet" HorizontalAlignment="Left" Margin="59,362,0,0" Command="{Binding SavePersonel}" VerticalAlignment="Top" Width="75"/>
+    </Grid>
+</Window>

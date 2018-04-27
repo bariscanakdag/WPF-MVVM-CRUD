@@ -5,9 +5,6 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace Proje.ViewModel
@@ -36,7 +33,7 @@ namespace Proje.ViewModel
         #region Personel Silme
         private void DeletePersonel()
         {
-            personelProvider.musteriSil(selecItem);
+            personelProvider.PersonelSil(selecItem);
             PersonelList.Remove(selecItem);
         }
         private ICommand deletePersonelCommand;
@@ -165,16 +162,42 @@ namespace Proje.ViewModel
 
 
         }
-
+        NewPersonWindow window;
         private void AddPersonel()
         {
-            NewPersonWindow window = new NewPersonWindow();
-            window.Show();
-            
-            
 
+            if (window == null)
+            {
+                
+                window = new NewPersonWindow();
+                window.NewPersonelViewModel.PersonelSave += NewPersonelViewModelPersonelSaved;
+                window.Closing += NewPersonWindowClosing;
+                window.Show();
+            }
+            else
+            {
+                window.Focus();
+            }
+               
+            
+                  
         }
-        
 
+        private void NewPersonelViewModelPersonelSaved(object sender, EventArgs e)
+        {
+            window.Close();
+            
+            //PersonelID Değeri otomatik olarak sıfır geliyor listeye sıfır diye kayıt
+            //ediliyor. Veritabanından verileri çekmek lazım
+            PersonelList.Add((PersonelModel)sender);
+            
+        }
+
+        private void NewPersonWindowClosing(object sender, CancelEventArgs e)
+
+        {
+            window.Dispose();
+            window = null;
+        }
     }
 }

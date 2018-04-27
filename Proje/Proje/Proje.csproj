@@ -76,11 +76,14 @@
     </ApplicationDefinition>
     <Compile Include="Helper\PozisyonConverter.cs" />
     <Compile Include="Helper\RelayCommand.cs" />
-    <Compile Include="Model\NewPersonelModel.cs" />
     <Compile Include="Model\PozisyonModel.cs" />
     <Compile Include="Model\ResimModel.cs" />
+    <Compile Include="ViewModel\EditPersonelViewModel.cs" />
     <Compile Include="ViewModel\NewPersonelViewModel.cs" />
     <Compile Include="ViewModel\PersonelViewModel.cs" />
+    <Compile Include="View\EditPersonelWindow.xaml.cs">
+      <DependentUpon>EditPersonelWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\NewPersonWindow.xaml.cs">
       <DependentUpon>NewPersonWindow.xaml</DependentUpon>
     </Compile>
@@ -94,6 +97,10 @@
     <Compile Include="Helper\PersonelProvider.cs" />
     <Compile Include="Helper\PozisyonProvider.cs" />
     <Compile Include="Helper\ResimProvaider.cs" />
+    <Page Include="View\EditPersonelWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\NewPersonWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -135,7 +142,9 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="System\Windows\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\System.Data.SQLite.Core.1.0.108.0\build\net451\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.108.0\build\net451\System.Data.SQLite.Core.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

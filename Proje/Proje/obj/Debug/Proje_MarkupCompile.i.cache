@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\asus\Desktop\Proje\Proje\App.xaml
-21271779384
+313535361
 
-212079917104
+221697244251
 19-646235120
-View\NewPersonWindow.xaml;View\PersonelView.xaml;
+View\EditPersonelWindow.xaml;View\NewPersonWindow.xaml;View\PersonelView.xaml;
 
-False
+True
 

@@ -52,7 +52,7 @@ namespace Proje.Helper
             cmd.ExecuteNonQuery();
             con.Close();
         }
-        public void personelEkle(NewPersonelModel m)
+        public void personelEkle(PersonelModel m)
         {
             //Gelen musteriyi veritabanına ekle
             string patch = @"C:\Users\asus\Desktop\Personel.db";
@@ -69,12 +69,32 @@ namespace Proje.Helper
             con.Close();
         }
 
-        internal void musteriEkle(NewPersonelModel person)
+
+        public PersonelModel tekPersonelGetir()
         {
-            throw new NotImplementedException();
+            string patch = @"C:\Users\asus\Desktop\Personel.db";
+            SQLiteConnection con = new SQLiteConnection("Data Source=" + patch);
+            con.Open();
+            SQLiteCommand cmd = new SQLiteCommand("SELECT * FROM personel ORDER BY PersonelID DESC LIMIT 1 ", con);
+            PersonelModel model = new PersonelModel();
+            SQLiteDataReader dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                model.Adi = dr.GetString(dr.GetOrdinal("Adi"));
+                model.Soyadi = dr.GetString(dr.GetOrdinal("Soyadi"));
+                model.Yas = dr.GetInt32(dr.GetOrdinal("Yas"));
+                model.Cinsiyet = dr.GetString(dr.GetOrdinal("Cinsiyet"));
+                model.PersonelID = dr.GetInt32(dr.GetOrdinal("PersonelID"));
+                model.PozisyonID = dr.GetInt32(dr.GetOrdinal("PozisyonID"));
+            }
+           
+
+
+
+            return model;
         }
 
-        public void musteriSil(PersonelModel musteri)
+        public void PersonelSil(PersonelModel musteri)
         {
             if(musteri != null)
             {

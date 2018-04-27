@@ -60,22 +60,28 @@ namespace Proje.ViewModel
             }
             
         }
+        public event EventHandler PersonelSave;
+
 
         private void Save()
         {
-            NewPersonelModel person = new NewPersonelModel();
+            PersonelModel person = new PersonelModel();
             person.Adi = Adi;
             person.Soyadi = Soyadi;
             person.Yas = Yasi;
             person.Cinsiyet = Cinsiyet;
-
-            //Hata verebilir
             person.PozisyonID = int.Parse(SelectPozisyon);
            PersonelProvider personelProvider = new PersonelProvider();
             personelProvider.personelEkle(person);
-            PersonelViewModel personelViewModel = new PersonelViewModel();
-           personelViewModel.
-           }
+            //listview de dogru id gözükmesi için
+            person = personelProvider.tekPersonelGetir();
+            if (PersonelSave != null)
+            {
+                
+                PersonelSave(person,null);
+            }
+             
+     }
       
 
 

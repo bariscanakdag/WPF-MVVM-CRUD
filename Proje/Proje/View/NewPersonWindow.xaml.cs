@@ -18,14 +18,21 @@ namespace Proje.View
     /// <summary>
     /// Interaction logic for NewPersonWindow.xaml
     /// </summary>
-    public partial class NewPersonWindow : Window
+    public partial class NewPersonWindow : Window,IDisposable
     {
+        public NewPersonelViewModel NewPersonelViewModel;
         public NewPersonWindow()
         {
             InitializeComponent();
-            DataContext = new NewPersonelViewModel();
+            NewPersonelViewModel = new NewPersonelViewModel();
+            DataContext = NewPersonelViewModel;
         }
 
-    
+        public void Dispose()
+        {
+            NewPersonelViewModel = null;
+            GC.SuppressFinalize(this);
+            GC.Collect();
+        }
     }
 }

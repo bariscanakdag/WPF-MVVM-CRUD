@@ -9,50 +9,54 @@ namespace Proje.Model
 {
     public class PersonelModel
     {
-        private string _adi;
-        private string _soyadi;
-        private int _yas;
-        private string _cinsiyet;
-        private int _personelID;
+        private string adi;
+        private string soyadi;
+        private int yas;
+        private string cinsiyet;
+        private int personelID;
+
+        /// <summary>
+        /// Personel nesnesinin tüm özellikleri tutulur.
+        /// </summary>
         #region Constructor Musteri
         public string Adi
         {
-            get { return _adi; }
+            get { return adi; }
             set
             {
-                _adi = value;
+                adi = value;
             }
         }
         public int Yas
         {
-            get { return _yas; }
+            get { return yas; }
             set
             {
-                _yas = value;
+                yas = value;
             }
         }
         public int PersonelID
         {
-            get { return _personelID; }
+            get { return personelID; }
             set
             {
-                _personelID = value;
+                personelID = value;
             }
         }
         public string Soyadi
         {
-            get { return _soyadi; }
+            get { return soyadi; }
             set
             {
-                _soyadi = value;
+                soyadi = value;
             }
         }
         public string Cinsiyet
         {
-            get { return _cinsiyet; }
+            get { return cinsiyet; }
             set
             {
-                _cinsiyet = value;
+                cinsiyet = value;
             }
         }
         private int pozisyonID;

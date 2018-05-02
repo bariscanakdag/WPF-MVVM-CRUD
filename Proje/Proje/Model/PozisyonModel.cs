@@ -9,14 +9,16 @@ namespace Proje.Model
     public class PozisyonModel
     {
         private int pozisyonID;
-
+        private string pozisyon;
+        /// <summary>
+        /// Pozisyon bilgilerini tutan yapıcımız
+        /// </summary>
+        #region PozisyonModel Contractor
         public int PozisyonID
         {
             get { return pozisyonID; }
             set { pozisyonID = value; }
         }
-
-        private string pozisyon;
 
         public string Pozisyon
         {
@@ -25,7 +27,7 @@ namespace Proje.Model
         }
 
     }
-
+    #endregion
 
 
 }

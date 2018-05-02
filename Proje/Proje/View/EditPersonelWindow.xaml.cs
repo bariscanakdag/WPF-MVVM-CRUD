@@ -18,13 +18,22 @@ namespace Proje.View
     /// <summary>
     /// Interaction logic for EditPersonelWindow.xaml
     /// </summary>
-    public partial class EditPersonelWindow : Window
+    public partial class EditPersonelWindow : Window,IDisposable
     {
+        public EditPersonelViewModel EditPersonelViewModel;
         public EditPersonelWindow(Model.PersonelModel selecItem)
         {
             InitializeComponent();
-            EditPersonelViewModel editPersonelViewModel = new EditPersonelViewModel(selecItem);
-            DataContext = editPersonelViewModel;
+            EditPersonelViewModel = new EditPersonelViewModel(selecItem);
+            //EditPersonelViewModel editPersonelViewModel = new EditPersonelViewModel(selecItem);
+            DataContext = EditPersonelViewModel;
+        }
+
+        public void Dispose()
+        {
+            EditPersonelViewModel = null;
+            GC.SuppressFinalize(this);
+            GC.Collect();
         }
     }
 }

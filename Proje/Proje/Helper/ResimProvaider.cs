@@ -12,7 +12,7 @@ namespace Proje.Helper
     {
         
 
-        public List<ResimModel> resimleriGetir()
+        public List<ResimModel> ResimleriGetir()
         {
             List<ResimModel> resims = new List<ResimModel>();
             string patch = @"C:\Users\asus\Desktop\Personel.db";
@@ -20,9 +20,10 @@ namespace Proje.Helper
             con.Open();
             SQLiteCommand cmd = new SQLiteCommand("select * from resim", con) ;
             SQLiteDataReader dr = cmd.ExecuteReader();
+            ResimModel rs = new ResimModel();
             while (dr.Read())
             {
-                ResimModel rs = new ResimModel();
+               
                 rs.Resim = dr.GetString(dr.GetOrdinal("Resim"));
                 rs.ResimID = dr.GetInt32(dr.GetOrdinal("ResimID"));
                 resims.Add(rs);
@@ -30,7 +31,7 @@ namespace Proje.Helper
             con.Close();
             return resims;
         }
-        public void resimSil(ResimModel resim)
+        public void ResimSil(ResimModel resim)
         {
             string patch = @"C:\Users\asus\Desktop\Personel.db";
             SQLiteConnection con = new SQLiteConnection("Data Source=" + patch);
@@ -40,7 +41,7 @@ namespace Proje.Helper
             cmd.ExecuteNonQuery();
             con.Close();
         }
-        public void resimSil(string resim)
+        public void ResimSil(string resim)
         {
             string patch = @"C:\Users\asus\Desktop\Personel.db";
             SQLiteConnection con = new SQLiteConnection("Data Source=" + patch);
@@ -50,7 +51,7 @@ namespace Proje.Helper
             cmd.ExecuteNonQuery();
             con.Close();
         }
-        public void resimEkle(ResimModel rs)
+        public void ResimEkle(ResimModel rs)
         {
             string patch = @"C:\Users\asus\Desktop\Personel.db";
             SQLiteConnection con = new SQLiteConnection("Data Source=" + patch);
@@ -60,7 +61,7 @@ namespace Proje.Helper
             cmd.ExecuteNonQuery();
             con.Close();
         }
-        public void resimEkle(string rs)
+        public void ResimEkle(string rs)
         {
             string patch = @"C:\Users\asus\Desktop\Personel.db";
             SQLiteConnection con = new SQLiteConnection("Data Source=" + patch);

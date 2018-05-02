@@ -1,6 +1,10 @@
 ﻿using System;
 using System.Windows.Input;
 
+/// <summary>
+/// Button'a tıkladığımızda çalışacak olan metodlarımızı yazarız 
+/// </summary>
+#region RelayCommand
 public class RelayCommand : ICommand
 {
     public event EventHandler CanExecuteChanged
@@ -43,4 +47,6 @@ public class RelayCommand : ICommand
     {
         this.methodToExecute.Invoke();
     }
+
 }
+#endregion

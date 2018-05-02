@@ -72,9 +72,9 @@ namespace Proje.ViewModel
             person.Cinsiyet = Cinsiyet;
             person.PozisyonID = int.Parse(SelectPozisyon);
            PersonelProvider personelProvider = new PersonelProvider();
-            personelProvider.personelEkle(person);
+            personelProvider.PersonelEkle(person);
             //listview de dogru id gözükmesi için
-            person = personelProvider.tekPersonelGetir();
+            person = personelProvider.TekPersonelGetir();
             if (PersonelSave != null)
             {
                 

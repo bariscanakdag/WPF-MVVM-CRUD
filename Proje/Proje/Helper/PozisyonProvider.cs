@@ -10,9 +10,12 @@ namespace Proje.Helper
 {
     public class PozisyonProvider
     {
-   
-
-        public List<PozisyonModel> pozisyonGetir()
+        /// <summary>
+        /// Pozisyon bilgilerine bu provider'dan ulaşırız
+        /// </summary>
+        /// <returns>Pozisyon ve PozisyonID döner</returns>
+        #region PozisyonGetir Provider
+        public List<PozisyonModel> PozisyonGetir()
         {
             List<PozisyonModel> pozisyonList = new List<PozisyonModel>();
             string patch = @"C:\Users\asus\Desktop\Personel.db";
@@ -20,9 +23,10 @@ namespace Proje.Helper
             con.Open();
             SQLiteCommand cmd = new SQLiteCommand("select * from pozisyon", con);
             SQLiteDataReader dr = cmd.ExecuteReader();
+            PozisyonModel pozisyons;
             while (dr.Read())
             {
-                PozisyonModel pozisyons = new PozisyonModel();
+                pozisyons = new PozisyonModel();
                 pozisyons.Pozisyon = dr.GetString(dr.GetOrdinal("Pozisyon"));
                 pozisyons.PozisyonID = dr.GetInt32(dr.GetOrdinal("PozisyonID"));
                 
@@ -31,8 +35,14 @@ namespace Proje.Helper
             con.Close();
             return pozisyonList;
         }
+        #endregion
 
-        public void pozisyonSil(PozisyonModel p)
+        /// <summary>
+        /// Pozisyon Ekleme,silme,düzenleme kullanılmıyor
+        /// </summary>
+        /// <param name="p"></param>
+        #region Kullanılmayan Provaiderler
+        public void PozisyonSil(PozisyonModel p)
         {
             string patch = @"C:\Users\asus\Desktop\Personel.db";
             SQLiteConnection con = new SQLiteConnection("Data Source=" + patch);
@@ -42,7 +52,7 @@ namespace Proje.Helper
             cmd.ExecuteNonQuery();
             con.Close();
         }
-        public void pozisyonSil(string p)
+        public void PozisyonSil(string p)
         {
             string patch = @"C:\Users\asus\Desktop\Personel.db";
             SQLiteConnection con = new SQLiteConnection("Data Source=" + patch);
@@ -52,7 +62,7 @@ namespace Proje.Helper
             cmd.ExecuteNonQuery();
             con.Close();
         }
-        public void  pozisyonEkle(PozisyonModel pozisyon)
+        public void  PozisyonEkle(PozisyonModel pozisyon)
         {
 
             string patch = @"C:\Users\asus\Desktop\Personel.db";
@@ -63,7 +73,7 @@ namespace Proje.Helper
             cmd.ExecuteNonQuery();
             con.Close();
         }
-
+        #endregion
 
     }
 }

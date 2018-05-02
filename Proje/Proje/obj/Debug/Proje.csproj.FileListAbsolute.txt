@@ -26,3 +26,5 @@ C:\Users\asus\Desktop\Proje\Proje\obj\Debug\View\PersonelView.g.cs
 C:\Users\asus\Desktop\Proje\Proje\obj\Debug\View\PersonelView.baml
 C:\Users\asus\Desktop\Proje\Proje\obj\Debug\View\NewPersonWindow.g.cs
 C:\Users\asus\Desktop\Proje\Proje\obj\Debug\View\NewPersonWindow.baml
+C:\Users\asus\Desktop\Proje\Proje\obj\Debug\View\EditPersonelWindow.g.cs
+C:\Users\asus\Desktop\Proje\Proje\obj\Debug\View\EditPersonelWindow.baml

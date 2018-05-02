@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Proje.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +20,11 @@ namespace Proje.View
     /// </summary>
     public partial class EditPersonelWindow : Window
     {
-        public EditPersonelWindow()
+        public EditPersonelWindow(Model.PersonelModel selecItem)
         {
             InitializeComponent();
+            EditPersonelViewModel editPersonelViewModel = new EditPersonelViewModel(selecItem);
+            DataContext = editPersonelViewModel;
         }
     }
 }

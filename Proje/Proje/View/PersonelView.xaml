@@ -7,9 +7,9 @@
              mc:Ignorable="d" 
         
              d:DesignHeight="700" d:DesignWidth="800">
-     <Window.Resources>
+    <Window.Resources>
         <local:PozisyonConverter x:Key="PozisyonConverter" />
-        </Window.Resources>
+    </Window.Resources>
     <Grid>
         <Grid Margin="0,0,0,20">
             <Grid.RowDefinitions>
@@ -25,16 +25,18 @@
                         <GridViewColumn Header="Cinsiyet"  DisplayMemberBinding="{Binding Cinsiyet}"  Width="80"/>
                         <GridViewColumn  Header="Adi" DisplayMemberBinding="{Binding Adi}"  Width="80" />
                         <GridViewColumn Header="Soyadi" DisplayMemberBinding="{Binding Soyadi}" Width="100" />
+                        <GridViewColumn Header="Yasi" DisplayMemberBinding="{Binding Yas}" Width="100" />
 
                     </GridView>
                 </ListView.View>
 
             </ListView>
-            
+
             <Button   Content="Yeni Kişi" HorizontalAlignment="Left" Margin="467,146,0,0" Grid.Row="1" VerticalAlignment="Top" Width="76" Command="{Binding AddPersonelCommand}"/>
             <Button Content="Yukarı" HorizontalAlignment="Left" Margin="10,146,0,0" Grid.Row="1" VerticalAlignment="Top" Command="{Binding UpListCommand}" Width="75" RenderTransformOrigin="1.587,0.5" Background="#FF289E69"/>
             <Button Content="Aşağı" HorizontalAlignment="Left" Margin="90,146,0,0" Grid.Row="1" VerticalAlignment="Top" Command="{Binding DownListCommand}" Width="75" RenderTransformOrigin="1.493,0.55" Background="#FFEE1B54"/>
             <Button Content="Personel Sil&#xD;&#xA;" HorizontalAlignment="Left" Margin="368,146,0,0" Grid.Row="1" VerticalAlignment="Top" Command="{Binding DeletePersonelCommand}" Width="75" Height="20"/>
+            <Button Content="Personel Edit" HorizontalAlignment="Left" Margin="243,146,0,0" Grid.Row="1" VerticalAlignment="Top" Command="{Binding EditPersonelCommand}" Width="85" Height="20"/>
 
         </Grid>
     </Grid>

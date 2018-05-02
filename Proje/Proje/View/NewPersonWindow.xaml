@@ -40,6 +40,7 @@
             <ComboBoxItem Content="3" HorizontalAlignment="Left" Width="118"/>
             <ComboBoxItem Content="4" HorizontalAlignment="Left" Width="118"/>
             <ComboBoxItem Content="5" HorizontalAlignment="Left" Width="118"/>
+            <ComboBox Width="120"/>
         </ComboBox>
 
         <!--<TextBlock Text="{Binding SelectedValue,ElementName=cmbPozisyon}"/>-->

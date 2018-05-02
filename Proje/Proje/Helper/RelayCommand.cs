@@ -10,6 +10,8 @@ public class RelayCommand : ICommand
     }
     private Action methodToExecute;
     private Func<bool> canExecuteEvaluator;
+    private ICommand editSave;
+
     public RelayCommand(Action methodToExecute, Func<bool> canExecuteEvaluator)
     {
         this.methodToExecute = methodToExecute;
@@ -19,6 +21,12 @@ public class RelayCommand : ICommand
         : this(methodToExecute, null)
     {
     }
+
+    public RelayCommand(ICommand editSave)
+    {
+        this.editSave = editSave;
+    }
+
     public bool CanExecute(object parameter)
     {
         if (this.canExecuteEvaluator == null)

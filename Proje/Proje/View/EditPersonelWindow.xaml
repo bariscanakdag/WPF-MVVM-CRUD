@@ -7,17 +7,16 @@
         mc:Ignorable="d"
         Title="EditPersonelWindow" Height="450" Width="800">
     <Grid>
-        <Label Content="Adi" HorizontalAlignment="Left" Margin="136,88,0,0" VerticalAlignment="Top" Width="67"/>
+        <Label  Content="Adi" HorizontalAlignment="Left" Margin="136,88,0,0" VerticalAlignment="Top" Width="67"/>
         <Label Content="Yasi" HorizontalAlignment="Left" Margin="136,145,0,0" VerticalAlignment="Top" Width="67"/>
         <Label Content="Soyadi" HorizontalAlignment="Left" Margin="136,114,0,0" VerticalAlignment="Top" Width="67"/>
         <Label Content="Cinsiyet" HorizontalAlignment="Left" Margin="136,176,0,0" VerticalAlignment="Top" Width="67"/>
         <Label Content="PozisyonID" HorizontalAlignment="Left" Margin="136,207,0,0" VerticalAlignment="Top" Width="67"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="224,118,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="224,179,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="224,146,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="224,92,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="224,207,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Button Content="Değişikleri Kaydet" HorizontalAlignment="Left" Margin="196,326,0,0" VerticalAlignment="Top" Width="148" Height="46"/>
+        <TextBox  Text="{Binding Personel.Soyadi, Mode=TwoWay}" HorizontalAlignment="Left" Height="23" Margin="224,118,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox Text="{Binding Personel.Cinsiyet, Mode=TwoWay}" HorizontalAlignment="Left" Height="23" Margin="224,179,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox Text="{Binding Personel.Yas , Mode=TwoWay}" HorizontalAlignment="Left" Height="23" Margin="224,146,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox Text="{Binding Personel.Adi, Mode=TwoWay}" HorizontalAlignment="Left" Height="23" Margin="224,92,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Button Content="Değişikleri Kaydet" HorizontalAlignment="Left" Margin="196,326,0,0" VerticalAlignment="Top" Command="{Binding EditSave}" Width="148" Height="46"/>
         <ListBox HorizontalAlignment="Left" Height="168" Margin="445,88,0,0" VerticalAlignment="Top" Width="138">
             <ListBoxItem Content="1-Uzman"/>
             <ListBoxItem Content="2-Destek"/>
@@ -26,6 +25,14 @@
             <ListBoxItem Content="5-Asistan"/>
             <ListBoxItem Content="Pozisyon ID nitelikler"/>
         </ListBox>
+        <ComboBox  HorizontalAlignment="Left" Margin="224,211,0,0" VerticalAlignment="Top" Width="120" SelectedItem="{Binding Personel.PozisyonID}" SelectedValuePath="{Binding Personel.PozisyonID}" SelectedValue="{Binding Personel.PozisyonID}">
+            <ComboBoxItem Content="1" HorizontalAlignment="Left" Width="118"/>
+            <ComboBoxItem Content="2" HorizontalAlignment="Left" Width="118"/>
+            <ComboBoxItem Content="3" HorizontalAlignment="Left" Width="118"/>
+            <ComboBoxItem Content="4" HorizontalAlignment="Left" Width="118"/>
+            <ComboBoxItem Content="5" HorizontalAlignment="Left" Width="118"/>
+         
+        </ComboBox>
 
     </Grid>
 </Window>

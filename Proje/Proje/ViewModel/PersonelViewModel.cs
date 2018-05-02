@@ -199,5 +199,25 @@ namespace Proje.ViewModel
             window.Dispose();
             window = null;
         }
+        private ICommand editPersonelCommand;
+
+        public ICommand EditPersonelCommand
+        {
+            get { if (editPersonelCommand == null)
+                    editPersonelCommand = new RelayCommand(Edit);
+                return editPersonelCommand;
+                    
+                     }
+           
+        }
+
+        private void Edit()
+        {
+            EditPersonelWindow window = new EditPersonelWindow(SelecItem);
+            
+            window.Show();
+            
+            
+        }
     }
 }

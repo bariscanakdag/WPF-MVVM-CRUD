@@ -22,6 +22,13 @@ namespace Proje.Model
             get { return resim; }
             set { resim = value; }
         }
+        private int personelID;
+
+        public int PersonelID
+        {
+            get { return personelID; }
+            set { personelID = value; }
+        }
 
     }
 }

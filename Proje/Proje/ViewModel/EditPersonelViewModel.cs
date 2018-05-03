@@ -24,13 +24,13 @@ namespace Proje.ViewModel
             }
         }
 
-        private ICommand editSave;
 
         public EditPersonelViewModel(PersonelModel selecItem)
         {
             Personel = selecItem;
 
         }
+        private ICommand editSave;
 
         public ICommand EditSave
         {
@@ -43,23 +43,14 @@ namespace Proje.ViewModel
             }
 
         }
-        private string selectPozisyon;
-
-        public string SelectPozisyon
-        {
-            get { return selectPozisyon; }
-            set { selectPozisyon = value; }
-        }
-        public event EventHandler PersonelEdit;
-        
         private void Save()
         {
 
-            
+
             personel.Adi = Personel.Adi;
             personel.Soyadi = Personel.Soyadi;
             personel.Yas = Personel.Yas;
-            personel.PozisyonID =  Personel.PozisyonID;
+            personel.PozisyonID = Personel.PozisyonID;
             personel.PersonelID = Personel.PersonelID;
             personel.Cinsiyet = Personel.Cinsiyet;
             PersonelProvider.PersonelEdit(personel);
@@ -70,6 +61,18 @@ namespace Proje.ViewModel
 
 
         }
+
+
+        private string selectPozisyon;
+
+        public string SelectPozisyon
+        {
+            get { return selectPozisyon; }
+            set { selectPozisyon = value; }
+        }
+        public event EventHandler PersonelEdit;
+        
+       
 
      
 

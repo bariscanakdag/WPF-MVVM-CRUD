@@ -8,11 +8,11 @@
         mc:Ignorable="d"
         Title="NewPersonWindow" Height="450" Width="800">
     <Grid RenderTransformOrigin="0.402,0.382">
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="94,109,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="{Binding Adi}" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="94,109,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="{Binding Personel.Adi,Mode=TwoWay}" Width="120"/>
         <Label Content="    Adı" HorizontalAlignment="Left" Margin="41,109,0,0" VerticalAlignment="Top" Width="48"  Height="23"/>
-        <TextBox Text="{Binding Soyadi}" HorizontalAlignment="Left" Height="23" Margin="94,137,0,0" TextWrapping="Wrap" VerticalAlignment="Top"  Width="120"/>
-        <TextBox Text="{Binding Yasi}" HorizontalAlignment="Left" Height="23" Margin="94,165,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox Text="{Binding Cinsiyet}" HorizontalAlignment="Left" Height="23" Margin="94,200,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox Text="{Binding Personel.Soyadi,Mode=TwoWay}" HorizontalAlignment="Left" Height="23" Margin="94,137,0,0" TextWrapping="Wrap" VerticalAlignment="Top"  Width="120"/>
+        <TextBox Text="{Binding Personel.Yas,Mode=TwoWay}" HorizontalAlignment="Left" Height="23" Margin="94,165,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox Text="{Binding Personel.Cinsiyet,Mode=TwoWay}" HorizontalAlignment="Left" Height="23" Margin="94,200,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <Label Content="    Soyadı" HorizontalAlignment="Left" Margin="18,137,0,0" VerticalAlignment="Top" Width="71" Height="28"/>
         <Label Content="Yas" HorizontalAlignment="Left" Margin="41,165,0,0" VerticalAlignment="Top" Width="48" Height="23"/>
         <Label Content="    Cinsiyet" HorizontalAlignment="Left" Margin="10,200,0,0" VerticalAlignment="Top" Width="79" Height="30"/>
@@ -46,6 +46,7 @@
         <!--<TextBlock Text="{Binding SelectedValue,ElementName=cmbPozisyon}"/>-->
 
         <Button  Content="Kaydet" HorizontalAlignment="Left" Margin="59,362,0,0" Command="{Binding SavePersonel}" VerticalAlignment="Top" Width="75"/>
-        <Frame Content="Frame" HorizontalAlignment="Left" Height="100" Margin="220,282,0,0" VerticalAlignment="Top" Width="100"/>
+        <Button Content="ResimEkle" HorizontalAlignment="Left" Margin="197,362,0,0" VerticalAlignment="Top" Command="{Binding ImageAdd}" Width="75"/>
+        <Image  HorizontalAlignment="Left" Height="100" Margin="339,293,0,0" Source="{Binding ImageSource}"   VerticalAlignment="Top" Width="100"/>
     </Grid>
 </Window>

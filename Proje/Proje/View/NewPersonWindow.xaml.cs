@@ -21,10 +21,10 @@ namespace Proje.View
     public partial class NewPersonWindow : Window,IDisposable
     {
         public NewPersonelViewModel NewPersonelViewModel;
-        public NewPersonWindow()
+        public NewPersonWindow(Model.PersonelModel personel)
         {
             InitializeComponent();
-            NewPersonelViewModel = new NewPersonelViewModel();
+            NewPersonelViewModel = new NewPersonelViewModel(personel);
             DataContext = NewPersonelViewModel;
         }
 

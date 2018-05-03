@@ -15,20 +15,20 @@ namespace Proje.ViewModel
         PozisyonProvider pozisyonProvider = new PozisyonProvider();
         #region Constructor musterList
         private ObservableCollection<PersonelModel> personelList;
-        public ObservableCollection<PersonelModel> PersonelList 
+        public ObservableCollection<PersonelModel> PersonelList
         {
             get { return personelList; }
             set
             {
                 personelList = value;
-                    
+
                 OnPropertyChanged(nameof(PersonelList));
             }
 
         }
 
-       
-      
+
+
         private string title;
         #endregion
 
@@ -36,7 +36,7 @@ namespace Proje.ViewModel
         /// ListView'den seçili olan personeli siler
         /// </summary>
         #region Personel Silme
-      
+
         private ICommand deletePersonelCommand;
 
         public ICommand DeletePersonelCommand
@@ -65,9 +65,9 @@ namespace Proje.ViewModel
         #region Constructor MusteriViewModel
         public PersonelViewModel()
         {
-            personelList = new ObservableCollection<PersonelModel>( personelProvider.PersonelGetir());
+            personelList = new ObservableCollection<PersonelModel>(personelProvider.PersonelGetir());
             pozisyonList = pozisyonProvider.PozisyonGetir();
-            
+
             Title = "test";
         }
         #endregion
@@ -78,20 +78,23 @@ namespace Proje.ViewModel
         public List<PozisyonModel> PozisyonList
         {
             get { return pozisyonList; }
-            set { pozisyonList = value;
+            set
+            {
+                pozisyonList = value;
                 OnPropertyChanged("PozisyonList");
             }
         }
         #endregion
 
-        
-        
+
+
         #region UpList Listede Yukarı Çıkma
         private ICommand upListCommand;
 
         public ICommand UpListCommand
         {
-            get {
+            get
+            {
                 if (upListCommand == null)
                 {
                     upListCommand = new RelayCommand(UpList);
@@ -99,7 +102,7 @@ namespace Proje.ViewModel
                 return upListCommand;
 
             }
-           
+
         }
         private void UpList()
         {
@@ -117,18 +120,21 @@ namespace Proje.ViewModel
         }
         #endregion
 
-       
+
 
         #region SelecItem Contractor
         private PersonelModel selecItem;
-        public PersonelModel SelecItem       {
+        public PersonelModel SelecItem
+        {
             get { return selecItem; }
-            set { selecItem = value;
+            set
+            {
+                selecItem = value;
                 OnPropertyChanged(nameof(SelecItem));
             }
         }
         #endregion
-        
+
 
 
         #region DownList ListViewde Aşağı Gitme
@@ -138,33 +144,36 @@ namespace Proje.ViewModel
 
         public ICommand DownListCommand
         {
-            get {if (downListCommand == null)
+            get
+            {
+                if (downListCommand == null)
                     downListCommand = new RelayCommand(DownList);
-                return downListCommand; }
-            
+                return downListCommand;
+            }
+
         }
 
         private void DownList()
         {
-            if (PersonelList.IndexOf(selecItem) != PersonelList.Count-1 && PersonelList.IndexOf(SelecItem) != -1)
+            if (PersonelList.IndexOf(selecItem) != PersonelList.Count - 1 && PersonelList.IndexOf(SelecItem) != -1)
             {
                 var Index = PersonelList.IndexOf(SelecItem);
                 var temp = PersonelList[Index];
                 PersonelList[Index] = personelList[Index + 1];
                 PersonelList[Index + 1] = temp;
-                SelecItem=PersonelList[Index + 1];
+                SelecItem = PersonelList[Index + 1];
             }
         }
 
         #endregion
-       
+
         /// <summary>
         /// Yeni kişi ekle butonuna basıldığında NewPersonWindow açılır
         /// NewPersonWindow pencerisinde kayıt'a basıldığında.
         /// Kayıt yapılır ve pencere kapatılır.
         /// </summary>
         #region AddPersonel PersonelEkleme
-        NewPersonWindow window;
+
         private ICommand addPersonelCommand;
 
         public ICommand AddPersonelCommand
@@ -176,25 +185,27 @@ namespace Proje.ViewModel
                 return addPersonelCommand;
             }
         }
+        NewPersonWindow window;
         private void AddPersonel()
         {
-
+           
             if (window == null)
             {
-                
-                window = new NewPersonWindow();
+                PersonelModel personel = new PersonelModel();
+               
+                window = new NewPersonWindow(personel);
                 window.NewPersonelViewModel.PersonelSave += NewPersonelViewModelPersonelSaved;
                 window.Closing += NewPersonWindowClosing;
-                
+
                 window.Show();
             }
             else
             {
                 window.Focus();
             }
-               
-            
-                  
+
+
+
         }
         private void NewPersonelViewModelPersonelSaved(object sender, EventArgs e)
         {
@@ -224,14 +235,18 @@ namespace Proje.ViewModel
 
         public ICommand EditPersonelCommand
         {
-            get { if (editPersonelCommand == null)
+            get
+            {
+                if (editPersonelCommand == null)
                     editPersonelCommand = new RelayCommand(Edit);
                 return editPersonelCommand;
-                    
-                     }
-           
+
+            }
+
         }
         EditPersonelWindow EditWindow;
+
+
         private void Edit()
         {
             if (EditWindow == null)
@@ -242,15 +257,15 @@ namespace Proje.ViewModel
                 EditWindow.Closing += EditPersonWindowClosing;
 
             }
-            
-            
+
+
         }
-     
+
         private void EditPersonelViewModelPersonelEdit(object sender, EventArgs e)
         {
             EditWindow.Close();
             sender = null;
-         
+
         }
 
         private void EditPersonWindowClosing(object sender, CancelEventArgs e)

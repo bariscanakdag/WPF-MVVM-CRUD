@@ -12,7 +12,7 @@
         <Label Content="Soyadi" HorizontalAlignment="Left" Margin="136,114,0,0" VerticalAlignment="Top" Width="67"/>
         <Label Content="Cinsiyet" HorizontalAlignment="Left" Margin="136,176,0,0" VerticalAlignment="Top" Width="67"/>
         <Label Content="PozisyonID" HorizontalAlignment="Left" Margin="136,207,0,0" VerticalAlignment="Top" Width="67"/>
-        <TextBox  Text="{Binding Personel.Soyadi, Mode=TwoWay}" HorizontalAlignment="Left" Height="23" Margin="224,118,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox   Text="{Binding Personel.Soyadi, Mode=TwoWay}" HorizontalAlignment="Left" Height="23" Margin="224,118,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <TextBox Text="{Binding Personel.Cinsiyet, Mode=TwoWay}" HorizontalAlignment="Left" Height="23" Margin="224,179,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <TextBox Text="{Binding Personel.Yas , Mode=TwoWay}" HorizontalAlignment="Left" Height="23" Margin="224,146,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <TextBox Text="{Binding Personel.Adi, Mode=TwoWay}" HorizontalAlignment="Left" Height="23" Margin="224,92,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>

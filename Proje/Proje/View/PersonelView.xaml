@@ -8,7 +8,9 @@
         
              d:DesignHeight="700" d:DesignWidth="800">
     <Window.Resources>
+        <local:Base64ImageConverter x:Key="Base64ImageConverter"/>
         <local:PozisyonConverter x:Key="PozisyonConverter" />
+       
     </Window.Resources>
     <Grid>
         <Grid Margin="0,0,0,20">
@@ -20,6 +22,8 @@
             <ListView Name="UserGrid" Grid.Row="1" Margin="10,171,6,20" ItemsSource="{Binding PersonelList }" SelectedItem="{Binding  SelecItem ,Mode=TwoWay}" >
                 <ListView.View>
                     <GridView x:Name="grdTest">
+                        <GridViewColumn Header="Resim"  DisplayMemberBinding="{Binding PersonelID, Converter={StaticResource PozisyonConverter}}"  Width="80"/>
+
                         <GridViewColumn Header="PersonelID"  DisplayMemberBinding="{Binding PersonelID}"  Width="80"/>
                         <GridViewColumn Header="Pozisyon"  DisplayMemberBinding="{Binding PozisyonID, Converter={StaticResource PozisyonConverter}}"  Width="80"/>
                         <GridViewColumn Header="Cinsiyet"  DisplayMemberBinding="{Binding Cinsiyet}"  Width="80"/>

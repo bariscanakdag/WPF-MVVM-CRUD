@@ -26,6 +26,7 @@ namespace Proje.Helper
                
                 rs.Resim = dr.GetString(dr.GetOrdinal("Resim"));
                 rs.ResimID = dr.GetInt32(dr.GetOrdinal("ResimID"));
+                rs.PersonelID = dr.GetInt32(dr.GetOrdinal("PersonelID"));
                 resims.Add(rs);
             }
             con.Close();
@@ -61,13 +62,14 @@ namespace Proje.Helper
             cmd.ExecuteNonQuery();
             con.Close();
         }
-        public void ResimEkle(string rs)
+        public void ResimEkle(string rs,int personelid)
         {
             string patch = @"C:\Users\asus\Desktop\Personel.db";
             SQLiteConnection con = new SQLiteConnection("Data Source=" + patch);
             con.Open();
-            SQLiteCommand cmd = new SQLiteCommand("insert into resim(Resim) values(@resim)", con);
+            SQLiteCommand cmd = new SQLiteCommand("insert into resim(Resim,PersonelID) values(@resim,@personelid)", con);
             cmd.Parameters.AddWithValue("@resim", rs);
+            cmd.Parameters.AddWithValue("@personelid", personelid);
             cmd.ExecuteNonQuery();
             con.Close();
         }

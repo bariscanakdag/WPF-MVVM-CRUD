@@ -74,6 +74,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Helper\Base64ImageConverter.cs" />
     <Compile Include="Helper\PozisyonConverter.cs" />
     <Compile Include="Helper\RelayCommand.cs" />
     <Compile Include="Model\PozisyonModel.cs" />

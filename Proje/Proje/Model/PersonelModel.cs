@@ -9,18 +9,20 @@ namespace Proje.Model
 {
     public class PersonelModel
     {
-        private string adi;
-        private string soyadi;
-        private int yas;
-        private string cinsiyet;
-        private int personelID;
+
 
         /// <summary>
         /// Personel nesnesinin tüm özellikleri tutulur.
         /// </summary>
         #region Constructor Musteri
+        private string adi;
+        private string soyadi;
+        private int yas;
+        private string cinsiyet;
+        private int personelID;
         public string Adi
         {
+
             get { return adi; }
             set
             {

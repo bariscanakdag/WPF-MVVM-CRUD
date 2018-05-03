@@ -46,7 +46,7 @@
         <!--<TextBlock Text="{Binding SelectedValue,ElementName=cmbPozisyon}"/>-->
 
         <Button  Content="Kaydet" HorizontalAlignment="Left" Margin="59,362,0,0" Command="{Binding SavePersonel}" VerticalAlignment="Top" Width="75"/>
-        <Button Content="ResimEkle" HorizontalAlignment="Left" Margin="197,362,0,0" VerticalAlignment="Top" Command="{Binding ImageAdd}" Width="75"/>
-        <Image  HorizontalAlignment="Left" Height="100" Margin="339,293,0,0" Source="{Binding ImageSource}"   VerticalAlignment="Top" Width="100"/>
+        <Button Content="ResimEkle" HorizontalAlignment="Left" Margin="223,40,0,0" VerticalAlignment="Top" Command="{Binding ImageAdd}" Width="75" RenderTransformOrigin="0.68,-8.75"/>
+        <Image  HorizontalAlignment="Left" Height="100" Margin="94,4,0,0" Source="{Binding ImageSource}"   VerticalAlignment="Top" Width="100"/>
     </Grid>
 </Window>

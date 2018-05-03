@@ -22,20 +22,27 @@
             <ListView Name="UserGrid" Grid.Row="1" Margin="10,171,6,20" ItemsSource="{Binding PersonelList }" SelectedItem="{Binding  SelecItem ,Mode=TwoWay}" >
                 <ListView.View>
                     <GridView x:Name="grdTest">
-                        <GridViewColumn Header="Resim"  DisplayMemberBinding="{Binding PersonelID, Converter={StaticResource PozisyonConverter}}"  Width="80"/>
-
+                        <GridViewColumn Header="Resim" Width="120">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Image
+                                        Source="{Binding PersonelID, Converter={StaticResource Base64ImageConverter}}" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
                         <GridViewColumn Header="PersonelID"  DisplayMemberBinding="{Binding PersonelID}"  Width="80"/>
                         <GridViewColumn Header="Pozisyon"  DisplayMemberBinding="{Binding PozisyonID, Converter={StaticResource PozisyonConverter}}"  Width="80"/>
                         <GridViewColumn Header="Cinsiyet"  DisplayMemberBinding="{Binding Cinsiyet}"  Width="80"/>
                         <GridViewColumn  Header="Adi" DisplayMemberBinding="{Binding Adi}"  Width="80" />
                         <GridViewColumn Header="Soyadi" DisplayMemberBinding="{Binding Soyadi}" Width="100" />
                         <GridViewColumn Header="Yasi" DisplayMemberBinding="{Binding Yas}" Width="100" />
+                        <GridViewColumn  DisplayMemberBinding="{Binding PozisyonID, Converter={StaticResource Base64ImageConverter}}"/>
 
                     </GridView>
                 </ListView.View>
 
             </ListView>
-
+                
             <Button   Content="Yeni Kişi" HorizontalAlignment="Left" Margin="467,146,0,0" Grid.Row="1" VerticalAlignment="Top" Width="76" Command="{Binding AddPersonelCommand}"/>
             <Button Content="Yukarı" HorizontalAlignment="Left" Margin="10,146,0,0" Grid.Row="1" VerticalAlignment="Top" Command="{Binding UpListCommand}" Width="75" RenderTransformOrigin="1.587,0.5" Background="#FF289E69"/>
             <Button Content="Aşağı" HorizontalAlignment="Left" Margin="90,146,0,0" Grid.Row="1" VerticalAlignment="Top" Command="{Binding DownListCommand}" Width="75" RenderTransformOrigin="1.493,0.55" Background="#FFEE1B54"/>

@@ -20,10 +20,10 @@ namespace Proje.Helper
             con.Open();
             SQLiteCommand cmd = new SQLiteCommand("select * from resim", con) ;
             SQLiteDataReader dr = cmd.ExecuteReader();
-            ResimModel rs = new ResimModel();
+            
             while (dr.Read())
             {
-               
+                ResimModel rs = new ResimModel();
                 rs.Resim = dr.GetString(dr.GetOrdinal("Resim"));
                 rs.ResimID = dr.GetInt32(dr.GetOrdinal("ResimID"));
                 rs.PersonelID = dr.GetInt32(dr.GetOrdinal("PersonelID"));
@@ -32,13 +32,13 @@ namespace Proje.Helper
             con.Close();
             return resims;
         }
-        public void ResimSil(ResimModel resim)
+        public void ResimSil(int personelid)
         {
             string patch = @"C:\Users\asus\Desktop\Personel.db";
             SQLiteConnection con = new SQLiteConnection("Data Source=" + patch);
             con.Open();
-            SQLiteCommand cmd = new SQLiteCommand("delete from resim where=@isim");
-            cmd.Parameters.AddWithValue("@isim", resim.Resim);
+            SQLiteCommand cmd = new SQLiteCommand("delete from resim where PersonelID=@personelid",con);
+            cmd.Parameters.AddWithValue("@personelid", personelid);
             cmd.ExecuteNonQuery();
             con.Close();
         }
@@ -73,8 +73,7 @@ namespace Proje.Helper
             cmd.ExecuteNonQuery();
             con.Close();
         }
-        //Uptade metotları yazılacak
-        //bitmap yazılacak
+        
 
     }
 }

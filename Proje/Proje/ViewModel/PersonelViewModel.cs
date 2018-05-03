@@ -11,6 +11,7 @@ namespace Proje.ViewModel
 {
     public class PersonelViewModel : INotifyPropertyChanged
     {
+        ResimProvaider ResimProvaider = new ResimProvaider();
         PersonelProvider personelProvider = new PersonelProvider();
         PozisyonProvider pozisyonProvider = new PozisyonProvider();
         #region Constructor musterList
@@ -50,8 +51,11 @@ namespace Proje.ViewModel
         }
         private void DeletePersonel()
         {
+            ResimProvaider.ResimSil(SelecItem.PersonelID);
             personelProvider.PersonelSil(selecItem);
             PersonelList.Remove(selecItem);
+          
+            
         }
 
         #endregion

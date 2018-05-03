@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Proje.Model
 {
+    #region ResimModel Constructor
     public class ResimModel
     {
         private int resimID;
@@ -29,6 +30,6 @@ namespace Proje.Model
             get { return personelID; }
             set { personelID = value; }
         }
-
+        #endregion
     }
 }

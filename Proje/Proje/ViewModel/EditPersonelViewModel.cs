@@ -12,7 +12,7 @@ using Proje.View;
 namespace Proje.ViewModel
 {
     public class EditPersonelViewModel : INotifyPropertyChanged
-    {
+    {asd 
         PersonelProvider PersonelProvider = new PersonelProvider();
         private PersonelModel personel;
 
@@ -23,6 +23,8 @@ namespace Proje.ViewModel
                 OnPropertyChanged(nameof(Personel));
             }
         }
+
+        asd
 
 
         public EditPersonelViewModel(PersonelModel selecItem)
